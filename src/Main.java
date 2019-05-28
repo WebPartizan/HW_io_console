@@ -32,6 +32,7 @@ public class Main {
                 case ("mv"):
                     break;
                 case ("rmdir"):
+                    metods.rmDir(arg[1]);
                     break;
                 case ("rm"):
                     metods.rmFiles(arg[1]);

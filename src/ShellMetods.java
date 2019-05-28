@@ -11,10 +11,10 @@ public class ShellMetods {
     private Path dir;
     private String filename;
 
-    public ShellMetods () {
+    public ShellMetods() {
     }
 
-    public void newDir (String dirPath){
+    public void newDir(String dirPath) {
         try {
             Files.createDirectories(Paths.get(dirPath));
         } catch (IOException e) {
@@ -39,9 +39,19 @@ public class ShellMetods {
 
     public void rmFiles(String linkFile) {
         File file = new File(linkFile);
-        if (file.delete()) {
-            System.out.println("file " + linkFile + " delete");
+        if (file.isFile()) {
+            if (file.delete()) {
+                System.out.println("file " + linkFile + " delete");
+            }
         }
     }
 
+    public void rmDir(String linDir) {
+        File file = new File(linDir);
+        if (file.isDirectory()) {
+            if (file.delete()) {
+                System.out.println("folder " + linDir + " delete");
+            }
+        }
+    }
 }
