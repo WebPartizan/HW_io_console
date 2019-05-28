@@ -6,23 +6,22 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         while (true) {
-            BufferedReader jShell = new BufferedReader(new InputStreamReader(System.in));
+            BufferedReader miniJShell = new BufferedReader(new InputStreamReader(System.in));
+            ShellMetods metods = new ShellMetods();
             System.out.print("$>");
-            String comReader = jShell.readLine();
+            String comReader = miniJShell.readLine();
             String[] arg = comReader.split("\\s");
             switch (arg[0]) {
                 case ("touch"):
                     if (arg.length > 1) {
-                        ShellMetods touch = new ShellMetods();
-                        touch.newFile(arg[1]);
+                        metods.newFile(arg[1]);
                     } else {
                         System.out.println("Не указано имя файла");
                     }
                     break;
                 case ("mkdir"):
                     if (arg.length > 1) {
-                        ShellMetods mkDir = new ShellMetods();
-                        mkDir.newDir(arg[1]);
+                        metods.newDir(arg[1]);
                         break;
                     } else {
                         System.out.println("Не указано имя папки");
@@ -35,13 +34,13 @@ public class Main {
                 case ("rmdir"):
                     break;
                 case ("rm"):
+                    metods.rmFiles(arg[1]);
                     break;
                 case ("ls"):
-                    ShellMetods lsD = new ShellMetods();
-                    lsD.lsDir(arg[1]);
+                    metods.lsDir(arg[1]);
                     break;
                 case ("exit"):
-                    System.out.println("jShell Close");
+                    System.out.println("miniJShell Close");
                     System.exit(0);
                     break;
 

@@ -37,5 +37,11 @@ public class ShellMetods {
         stream.forEach(System.out::println);
     }
 
+    public void rmFiles(String linkFile) {
+        File file = new File(linkFile);
+        if (file.delete()) {
+            System.out.println("file " + linkFile + " delete");
+        }
+    }
 
 }
