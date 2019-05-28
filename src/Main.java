@@ -13,7 +13,7 @@ public class Main {
             switch (arg[0]) {
                 case ("touch"):
                     if (arg.length > 1) {
-                        TouchMkDir touch = new TouchMkDir();
+                        ShellMetods touch = new ShellMetods();
                         touch.newFile(arg[1]);
                     } else {
                         System.out.println("Не указано имя файла");
@@ -21,7 +21,7 @@ public class Main {
                     break;
                 case ("mkdir"):
                     if (arg.length > 1) {
-                        TouchMkDir mkDir = new TouchMkDir();
+                        ShellMetods mkDir = new ShellMetods();
                         mkDir.newDir(arg[1]);
                         break;
                     } else {
@@ -37,6 +37,8 @@ public class Main {
                 case ("rm"):
                     break;
                 case ("ls"):
+                    ShellMetods lsD = new ShellMetods();
+                    lsD.lsDir(arg[1]);
                     break;
                 case ("exit"):
                     System.out.println("jShell Close");

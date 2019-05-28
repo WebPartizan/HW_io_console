@@ -1,15 +1,17 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.stream.Stream;
 
-public class TouchMkDir {
+public class ShellMetods {
     private Path dir;
     private String filename;
 
-    public TouchMkDir() {
+    public ShellMetods () {
     }
 
     public void newDir (String dirPath){
@@ -29,4 +31,11 @@ public class TouchMkDir {
             e.printStackTrace();
         }
     }
+
+    public void lsDir(String linkDir) throws IOException {
+        Stream<Path> stream = Files.walk(Paths.get(linkDir), FileVisitOption.FOLLOW_LINKS);
+        stream.forEach(System.out::println);
+    }
+
+
 }
