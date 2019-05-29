@@ -28,6 +28,7 @@ public class Main {
                     }
                     break;
                 case ("cp"):
+                    metods.copyFile(arg[1], arg[2]);
                     break;
                 case ("mv"):
                     break;
