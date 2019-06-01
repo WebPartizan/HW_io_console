@@ -59,24 +59,28 @@ public class ShellMetods {
         File inFile = new File(source);
         File outFile = new File(dest);
 
-        if (inFile.isDirectory()) {
+        if (inFile.isDirectory() || outFile.isDirectory()) {
             if (!outFile.exists()) {
                 outFile.mkdirs();
             }
-
             String files[] = inFile.list();
+            if (files != null) {
+                for (String file : files) {
+                    File srcFile = new File(inFile, file);
+                    File destFile = new File(outFile, file);
 
-            for (String file : files) {
-                File srcFile = new File(inFile, file);
-                File destFile = new File(outFile, file);
-
-                cP(srcFile.toString(), destFile.toString());
+                    cP(srcFile.toString(), destFile.toString());
+                }
+            } else {
+                outFile = new File(outFile, inFile.getName());
+                outFile.createNewFile();
             }
         } else {
             InputStream in = null;
             OutputStream out = null;
 
             try {
+
                 in = new FileInputStream(inFile);
                 out = new FileOutputStream(outFile);
 
