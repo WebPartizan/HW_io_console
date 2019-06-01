@@ -28,9 +28,10 @@ public class Main {
                     }
                     break;
                 case ("cp"):
-                    metods.copyFile(arg[1], arg[2]);
+                    metods.cP(arg[1], arg[2]);
                     break;
                 case ("mv"):
+                    metods.mV(arg[1], arg[2]);
                     break;
                 case ("rmdir"):
                     metods.rmDir(arg[1]);
